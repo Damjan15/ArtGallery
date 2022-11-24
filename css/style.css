@@ -1,12 +1,12 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Outfit:wght@300&display=swap');
 /*=============== VARIABLES CSS ===============*/
 :root {
     --gold: #D5966C;
     --almost-black: #151515;
     --dark-grey: #444444;
     --font-shoulders: 'Big Shoulders Display', cursive;
+    --font-outfit: 'Outfit', sans-serif;
 }
 
 /*=============== REUSABLE CLASSES ===============*/
@@ -38,7 +38,52 @@
     font-size: 18px;
     font-weight: 300;
     line-height: 28px;
+    font-family: var(--font-outfit);
 }
+
+.btn {
+    width: 100%;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.btn button {
+    width: 204px;
+    height: 100%;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background-color: var(--almost-black);
+    color: #FFF;
+    font-family: var(--font-shoulders);
+    transition: background .3s;
+    cursor: pointer;
+}
+
+.btn .btn__icon {
+    background-color: var(--gold);
+    width: 56px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .3s;
+    cursor: pointer;
+}
+
+.btn:hover > button {
+    background-color: var(--gold);
+}
+
+.btn:hover .btn__icon {
+    background-color: var(--almost-black);
+}
+
 
 
 @media screen and (min-width: 768px) {
@@ -107,4 +152,122 @@ ul {
 button {
     border: none;
     outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+/*=============== HERO SECTION ===============*/
+.hero {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero__pattern {
+    display: none;
+}
+
+.hero__img .hero__img--mobile {
+    width: 100%;
+    height: 240px;
+}
+
+.hero__img .hero__img--tablet,
+.hero__img .hero__img--desktop {
+    display: none;
+}
+
+.hero .hero__content {
+    background-color: #FFF;
+    padding: 15px;
+}
+
+.hero .hero__content h1 {
+    text-transform: uppercase;
+    max-width: 280px;
+    margin: 30px 0px;
+}
+
+.hero .hero__content p {
+    color: var(--dark-grey);
+}
+
+@media screen and (min-width: 768px) {
+    .hero {
+        flex-direction: row;
+    }
+
+    .hero__img .hero__img--mobile {
+        display: none;
+    }
+
+    .hero__img .hero__img--tablet {
+        display: block;
+        height: 700px;
+    }
+
+    .hero__content {
+        position: relative;
+        width: 50%;
+    }
+    
+    .hero__content--container {
+        position: absolute;
+        top: 150px;
+        left: -80px;
+    }
+
+    .hero__content .hero__content--container h1 {
+        max-width: 500px;
+    }
+
+    .hero__content .hero__content--container .btn {
+        margin-top: 35px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .hero .hero__pattern {
+        display: block;
+        position: relative;
+        background-color: var(--almost-black); 
+        width: 450px;
+        height: 800px;
+    }
+
+    .hero__pattern .pattern__heading {
+        text-transform: uppercase;
+        color: #FFF;
+        position: absolute;
+        top: 250px;
+        left: 70px;
+        width: 500px;
+    }
+
+    .hero__pattern .pattern__heading span {
+        mix-blend-mode: difference;
+    }
+    
+    .hero .hero__img .hero__img--tablet {
+        display: none;
+    }
+
+    .hero .hero__img .hero__img--desktop {
+        display: block;
+        height: 800px;
+    }
+
+    .hero__content .hero__content--container {
+        top: 250px;
+        left: -50px;
+    }
+
+    .hero__content .hero__content--container h1 {
+        display: none;
+    }
+
+    .hero__content .hero__content--container p {
+        max-width: 350px;
+    }
 }
